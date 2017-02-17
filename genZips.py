@@ -24,11 +24,11 @@ def zip_cur_directory():
             project_name = dir[:-1]
             zip_name = project_name +".zip"
             zipf = ZipFile(zip_name, 'w', zipfile.ZIP_DEFLATED)
-            print "Creating " + zip_name  + " in " + os.getcwd()
+            #print "Creating " + zip_name  + " in " + os.getcwd()
             zipdir(dir, zipf)
             zipf.close()
-            print "moving " + zip_name + "to " + dir
-            print "cur dir "+os.getcwd()
+            #print "moving " + zip_name + "to " + dir
+            #print "cur dir "+os.getcwd()
             if os.path.exists(dir+zip_name):
                 os.remove(dir+zip_name) #if already exists
             #except (OSError,RuntimeError) as e:

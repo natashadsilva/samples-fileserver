@@ -4,6 +4,7 @@ import BaseHTTPServer
 import genZips
 
 from subprocess import call, check_output, CalledProcessError
+import subprocess
 
 import time
 from glob import glob
@@ -16,14 +17,14 @@ except ImportError:
 
 def clone():
     os.chdir("static")
-    print "testing git availability"
+    print "Cloning samples repo"
     if not (os.path.exists("samples")):
         try:
-           ret = check_output(["git","clone","https://github.com/IBMStreams/samples.git"], stderr=subprocess.STDOUT)
+           ret = check_output(["git","clone","https://github.com/IBMStreams/samples.git"])
            os.chdir("samples")
         except CalledProcessError as e:
             print "Error cloning samples: " + e.output
-        return -1;
+            return -1;
 
     else:
         #already exists, pull
