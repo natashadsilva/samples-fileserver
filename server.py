@@ -14,6 +14,9 @@ try:
 except ImportError:
   from http.server import HTTPServer as Server
 
+#Clone the samples repository
+#This way, we can generate the latest zips on demand.
+#ideally, we would run this script every time the samples repoitory was changed.
 
 def clone():
     os.chdir("static")
