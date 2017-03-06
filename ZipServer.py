@@ -40,7 +40,7 @@ class DownloadZipHandler(Handler):
                     else:
                         return path
                 else:
-                    print path + "is in samples dir" + str((path in os.listdir("samples")))
+                    print path + "is not in samples dir.  Current dir: " + os.getcwd()
         return valid
     def do_GET(self):
         '''
