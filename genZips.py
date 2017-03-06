@@ -15,17 +15,18 @@ def zipdir(path, ziph):
             ziph.write(os.path.join(root, file))
 
 def zip_cur_directory():
+    num_zipped = 0
     sub_dirs = glob("*/")
     for category in sub_dirs:
         #every top level folder is a category
         os.chdir(category)
         for dir in glob('*/'): #if it doesn't, check its sub directories
-            print dir
             project_name = dir[:-1]
             zip_name = project_name +".zip"
             zipf = ZipFile(zip_name, 'w', zipfile.ZIP_DEFLATED)
             #print "Creating " + zip_name  + " in " + os.getcwd()
             zipdir(dir, zipf)
+
             zipf.close()
             #print "moving " + zip_name + "to " + dir
             #print "cur dir "+os.getcwd()
@@ -34,11 +35,13 @@ def zip_cur_directory():
             #except (OSError,RuntimeError) as e:
             #    print "files"
             shutil.move(zip_name, dir)
+            num_zipped = num_zipped + 1
         os.chdir("..")
+    print "Done...Zipped " + str(num_zipped) + " Directories"
 if __name__ == '__main__':
     if (len(sys.argv) == 1):
         target_dir = os.getcwd()
     else:
         target_dir = sys.argv[1]
     os.chdir(target_dir)
-    zip_cur_directory(target_dir)
+    zip_cur_directory()
