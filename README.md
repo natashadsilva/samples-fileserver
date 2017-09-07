@@ -1,3 +1,23 @@
 # File server for Streams samples
 Since it is not currently possible to download individual folders from Github, this small app, hosted on bluemix,
 hosts and serves the zip files for the samples in the [Streams samples catalog](https://ibmstreams.github.io/samples).
+
+The `initialize.sh` script is run automatically from Bluemix whenever a change is made to this repository
+
+
+Server written for Python 2
+
+# Run the server locally,
+Run `initialize.sh` then run `python server.py`
+This will start a local server
+
+#Test downloads
+The `test`  folder has tests that use `curl` to verify the that the generated zips are the same as what is served by the fileserver.
+Run tests:
+- Make sure server is running (using instructions above)
+```
+cd test
+./run_test.sh
+```
+
+Check the latest `failure_20xx` file for results.
