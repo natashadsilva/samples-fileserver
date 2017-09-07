@@ -68,4 +68,5 @@ class DownloadZipHandler(Handler):
                 self.wfile.write(f.read())
                 f.close()
             else:
+                print ("Ignoring request for " + path)
                 self.redirect()
