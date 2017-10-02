@@ -11,7 +11,7 @@ Server written for Python 2
 Run `initialize.sh` then run `python server.py`
 This will start a local server
 
-#Test downloads
+# Tests
 The `test`  folder has tests that use `curl` to verify the that the generated zips are the same as what is served by the fileserver.
 Run tests:
 - Make sure server is running (using instructions above)
