@@ -7,7 +7,7 @@ The `initialize.sh` script is run automatically from IBM Cloud whenever a change
 
 Server written for Python 2
 
-# Run the server locally,
+# Run the server locally
 Run `initialize.sh` then run `python server.py`
 This will start a local server
 
